@@ -1,6 +1,7 @@
 import logging, uuid
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.utils import IntegrityError
+from itertools import chain
 
 # imports from current module
 from contacts.error_codes import ErrorCode
@@ -56,9 +57,14 @@ def svc_search_contact_by_name(search_query: str) -> tuple[ErrorCode, list[Conta
     """
     logger.debug(f">> ARGS: {locals()}")
 
-    return None, Contact.objects.filter(name__startswith=search_query).order_by(
-        "-pk"
-    ) | Contact.objects.filter(name__icontains=search_query).order_by("-pk")
+    return None, list(
+        chain(
+            Contact.objects.filter(name__startswith=search_query),
+            Contact.objects.filter(name__icontains=search_query).exclude(
+                name__startswith=search_query
+            ),
+        )
+    )
 
 
 def svc_search_contact_by_phone(
