@@ -1,3 +1,5 @@
+Backend of Truecaller kinda app!
+
 ### Prerequisite
 Python 3.11.0 
 
@@ -20,9 +22,4 @@ Database - sqlite
 > python manage.py migrate
 7. Run server
 > python manage.py runserver
-
-
-### Assumptions for this project
-1. It is not mentioned in the doc if "search contact by name" API and "search contact by phone" API should be same or different api so I have kept separate apis for both use cases.
-2. User and contacts scale is not very high (less than 1lakh rows). If scale is high, we can easily increase performance by adding database indexing (have addded comment also in the code) and even cache (redis) if needed.
 
