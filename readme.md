@@ -1,7 +1,3 @@
-### Project Details
-I build this as an assignment for [Instahyre](https://www.instahyre.com/) as their round 1 of interview process. The assignement was to build backend for truecaller kinda app. You can find more details in the [pdf](https://github.com/anuj6299/Instacaller/blob/master/Coding%20Task.pdf) present in this repo. Deadline was to build it in 24 hours, I build this within 12 hours though :)
-
-
 ### Prerequisite
 Python 3.11.0 
 
